@@ -16,7 +16,7 @@
       <v-col cols="4"/><v-col cols="4"> <v-text-field label="주민번호" v-model="stock.i_resno" readonly hide-details /></v-col><v-col cols="4"/>
       <v-col cols="4"/><v-col cols="4"> <v-text-field label="보유주식 수" v-model="stock.m_su1" readonly hide-details /></v-col><v-col cols="4"/>
       <v-col cols="4"/><v-col cols="4"> <v-text-field label="신청가능 주식수" v-model="stock.m_su2" readonly hide-details /></v-col><v-col cols="4"/>
-      <v-col cols="4"/><v-col cols="4"> <v-text-field label="주식 취득가액" v-model="stock.m_su3" readonly hide-details /></v-col><v-col cols="4"/>
+      <v-col cols="4"/><v-col cols="4"> <v-text-field label="1주 취득가액 " v-model="stock.m_su3" readonly hide-details /></v-col><v-col cols="4"/>
       <!-- <v-col cols="4"/><v-col cols="4"> <v-text-field label="매도확정 주식수" v-model="stock.m_su4" readonly hide-details /></v-col><v-col cols="4"/> -->
       <v-col cols="4"/><v-col><v-btn block color="primary" @click="doc('doc1')" :loading="isLoading">설명서1</v-btn> </v-col><v-col cols="4"/>
       <v-col cols="4"/><v-col><v-btn block color="primary" @click="doc('doc2')" :loading="isLoading">설명서2</v-btn> </v-col><v-col cols="4"/>

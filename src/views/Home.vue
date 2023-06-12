@@ -69,13 +69,13 @@ export default {
       let url = "";
       let filenm = ""
       if(item == 'doc1') {
-        url = "/upload/DOC1.pdf";
+        url = "/upload/자기주식취득에 관한 통지서.pdf";
         filenm = "자기주식취득에 관한 통지서.pdf"
       } else if (item == 'doc2') {
-        url = "/upload/DOC2.pdf";
+        url = "/upload/주식양도신청서.pdf";
         filenm = "주식양도신청서.pdf"
       } else {
-        url = "/upload/DOC3.pdf";
+        url = "/upload/자기주식취득에 관한 부연 설명서.pdf";
         filenm = "자기주식취득에 관한 부연 설명서.pdf"
       }
     

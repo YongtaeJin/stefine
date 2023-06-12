@@ -70,13 +70,13 @@ export default {
       let filenm = ""
       if(item == 'doc1') {
         url = "/upload/DOC1.pdf";
-        filenm = "설명서1.pdf"
+        filenm = "자기주식취득에 관한 통지서.pdf"
       } else if (item == 'doc2') {
         url = "/upload/DOC2.pdf";
-        filenm = "설명서2.pdf"
+        filenm = "주식양도신청서.pdf"
       } else {
         url = "/upload/DOC3.pdf";
-        filenm = "설명서3.pdf"
+        filenm = "자기주식취득에 관한 부연 설명서.pdf"
       }
     
       const fileBuffer = await this.$axios.get(`/api/member/getFileDown?path=${ url }`);            

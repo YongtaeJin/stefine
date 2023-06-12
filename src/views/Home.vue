@@ -18,9 +18,9 @@
       <v-col cols="4"/><v-col cols="4"> <v-text-field label="신청가능 주식수" v-model="stock.m_su2" readonly hide-details /></v-col><v-col cols="4"/>
       <v-col cols="4"/><v-col cols="4"> <v-text-field label="1주 취득가액 " v-model="stock.m_su3" readonly hide-details /></v-col><v-col cols="4"/>
       <!-- <v-col cols="4"/><v-col cols="4"> <v-text-field label="매도확정 주식수" v-model="stock.m_su4" readonly hide-details /></v-col><v-col cols="4"/> -->
-      <v-col cols="4"/><v-col><v-btn block color="primary" @click="doc('doc1')" :loading="isLoading">설명서1</v-btn> </v-col><v-col cols="4"/>
-      <v-col cols="4"/><v-col><v-btn block color="primary" @click="doc('doc2')" :loading="isLoading">설명서2</v-btn> </v-col><v-col cols="4"/>
-      <v-col cols="4"/><v-col><v-btn block color="primary" @click="doc('doc3')" :loading="isLoading">설명서3</v-btn> </v-col><v-col cols="4"/>
+      <v-col cols="4"/><v-col><v-btn block color="primary" @click="doc('자기주식취득에 관한 통지서')" :loading="isLoading">설명서1</v-btn> </v-col><v-col cols="4"/>
+      <v-col cols="4"/><v-col><v-btn block color="primary" @click="doc('주식양도신청서')" :loading="isLoading">설명서2</v-btn> </v-col><v-col cols="4"/>
+      <v-col cols="4"/><v-col><v-btn block color="primary" @click="doc('자기주식취득에 관한 부연 설명서')" :loading="isLoading">설명서3</v-btn> </v-col><v-col cols="4"/>
 
 
     </v-row>
@@ -69,13 +69,13 @@ export default {
       let url = "";
       let filenm = ""
       if(item == 'doc1') {
-        url = "/upload/자기주식취득에 관한 통지서.pdf";
+        url = "/upload/DOC1.pdf";
         filenm = "자기주식취득에 관한 통지서.pdf"
       } else if (item == 'doc2') {
-        url = "/upload/주식양도신청서.pdf";
+        url = "/upload/DOC2.pdf";
         filenm = "주식양도신청서.pdf"
       } else {
-        url = "/upload/자기주식취득에 관한 부연 설명서.pdf";
+        url = "/upload/DOC3.pdf";
         filenm = "자기주식취득에 관한 부연 설명서.pdf"
       }
     

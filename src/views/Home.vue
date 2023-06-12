@@ -76,12 +76,13 @@ export default {
         filenm = "주식양도신청서.pdf"
       } else {
         url = "/upload/DOC3.pdf";
-        filenm = "자기주식취득에 관한 부연 설명서.pdf"
+        filenm = "자기주식취득에관한 부연 설명서.pdf"
       }
     
       const fileBuffer = await this.$axios.get(`/api/member/getFileDown?path=${ url }`);            
       if (fileBuffer) {
-          save (fileBuffer, filenm);     
+          save (fileBuffer, filenm);    
+          alert('File Donw load Click !!'); 
       }
     }
     

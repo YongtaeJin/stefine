@@ -1,6 +1,8 @@
 <template>
   <div class="about">
     <h1>This is an about page</h1>
+    <v-btn @click="toggleReadOnly">{{ isReadOnly ? 'Enable Editing' : 'Enable ReadOnly' }}</v-btn>
+  
     <ckeditor v-if="editor" :editor="editor" v-model="editorData" :config="editorConfig" ref="ckeditor" @ready="onReady"></ckeditor>      
    
   </div>

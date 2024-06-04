@@ -12,8 +12,8 @@ router.post('/signInName', async (req, res) => {
 });
 // 파일다운로드
 router.get('/getFileDown', async (req, res)=> {	
-	const result = await modelCall(memberModel.getFileDown, req);	
-	res.json(result);
+	const result = await modelCall(memberModel.getFileDown, req);		
+	res.send(result);
 }),
 
 // /api/member/duplicateCheck/mb_id/abcd

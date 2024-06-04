@@ -38,20 +38,21 @@ const memberModel = {
 	async signInName(req) {		
 		let { n_name, i_resno } = req.body;
 		i_resno = i_resno.includes("-") ? i_resno : i_resno.replace(/(\d{6})(\d{7})/, "$1-$2");;
-		const sql = sqlHelper.SelectSimple('tb_stock', {n_name, i_resno});
-		console.log(sql)
+		const s_yyyy = "2024"
+		const sql = sqlHelper.SelectSimple('tb_stock', {n_name, i_resno, s_yyyy});
+		// console.log(sql)
 		const [data] = await db.execute(sql.query, sql.values);
-		console.log(data)
+		// console.log(data)
 		return data;
 	},
 	async getFileDown(req, res) {		
 		let fPath = `${SERVER_PATH}` ;
-		const { path } = req.query;		
-		let filePath = fPath + path;
-		console.log(filePath)		
-		const file = fs.readFileSync(filePath);	
-		
-		return file;
+		const path = req.query.path;
+		const filePath = fPath + path;
+		try {
+			const file = fs.readFileSync(filePath);				
+			return file;
+		} catch (e) {}
 	},
 
 	async duplicateCheck({ field, value }) {

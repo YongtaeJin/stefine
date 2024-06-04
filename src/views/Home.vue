@@ -17,15 +17,17 @@
       <v-col cols="4"/><v-col cols="4"> <v-text-field label="보유주식 수" v-model="stock.m_su1" readonly hide-details /></v-col><v-col cols="4"/>      
       <v-col cols="4"/><v-col cols="4"> <v-text-field label="1주 취득가액 " v-model="stock.m_su3" readonly hide-details /></v-col><v-col cols="4"/>
       <v-col cols="4"/><v-col cols="4"> <v-text-field label="신청가능 주식수" v-model="stock.m_su2" readonly hide-details /></v-col><v-col cols="4"/>
-      <v-col cols="4"/><v-col cols="4"> <v-text-field label="양도계약 성립주식수"  readonly hide-details :placeholder="sval" /></v-col><v-col cols="4"/> 
-      
+      <v-col cols="4"/><v-col cols="4"> <v-text-field label="양도계약 성립주식수" v-model="!!stock.m_su4 ? stock.m_su4 : stock.t_remark" readonly hide-details /></v-col><v-col cols="4"/> 
       <v-col cols="4"/><v-col cols="4"><v-btn block color="primary" @click="doc('doc1')" :loading="isLoading">자기주식취득에 관한 통지서</v-btn> </v-col><v-col cols="4"/>
       <v-col cols="4"/><v-col cols="4"><v-btn block color="primary" @click="doc('doc2')" :loading="isLoading">주식양도신청서</v-btn> </v-col><v-col cols="4"/>
       <v-col cols="4"/><v-col cols="4"><v-btn block color="primary" @click="doc('doc4')" :loading="isLoading">위임장</v-btn> </v-col><v-col cols="4"/>
       <v-col cols="4"/><v-col cols="4"><v-btn block color="primary" @click="doc('doc3')" :loading="isLoading">자기주식취득에 관한 부연 설명서</v-btn> </v-col><v-col cols="4"/>
 
-
+      <v-col>
+    
+    </v-col>
     </v-row>
+   
   </v-container>
 </template>
 

@@ -20,8 +20,9 @@
       <v-col cols="4"/><v-col cols="4"> <v-text-field label="양도계약 성립주식수" v-model="!!stock.m_su4 ? stock.m_su4 : stock.t_remark" readonly hide-details /></v-col><v-col cols="4"/> 
       <v-col cols="4"/><v-col cols="4"><v-btn block color="primary" @click="doc('doc1')" :loading="isLoading">자기주식취득에 관한 통지서</v-btn> </v-col><v-col cols="4"/>
       <v-col cols="4"/><v-col cols="4"><v-btn block color="primary" @click="doc('doc2')" :loading="isLoading">주식양도신청서</v-btn> </v-col><v-col cols="4"/>
-      <v-col cols="4"/><v-col cols="4"><v-btn block color="primary" @click="doc('doc4')" :loading="isLoading">위임장</v-btn> </v-col><v-col cols="4"/>
-      <v-col cols="4"/><v-col cols="4"><v-btn block color="primary" @click="doc('doc3')" :loading="isLoading">자기주식취득에 관한 부연 설명서</v-btn> </v-col><v-col cols="4"/>
+      <v-col cols="4"/><v-col cols="4"><v-btn block color="primary" @click="doc('doc4')" :loading="isLoading">위임장</v-btn> </v-col><v-col cols="4"/>      
+      <v-col cols="4"/><v-col cols="4"><v-btn block color="primary" @click="doc('doc3-12')" :loading="isLoading">자기주식취득에 관한 부연 설명서</v-btn> </v-col><v-col cols="4"/>
+      
 
       <v-col>
     
@@ -49,7 +50,7 @@ export default {
       valid: true,
       nameChk: false,
       form: {n_name:"", i_resno: ""},
-      stock: {i_resno:"", n_name:"", a_un:0, m_su1:0, m_su2:0, m_su3:0, m_su4:0, a_amt:0,},     
+      stock: {i_resno:"", n_name:"", a_un:0, m_su1:0, m_su2:0, m_su3:0, m_su4:0, a_amt:0, f_gun:""},     
       sval: "(2023년 8월 7일 이후 확인 가능)",
     }
 	},
@@ -64,6 +65,7 @@ export default {
     async login() {      
       this.isLoading = true;
       const data = await this.signInName(this.form);
+      console.log(data)
       if (data.length) {
         this.stock = deepCopy(data[0]);
         this.nameChk = true;        
@@ -74,16 +76,18 @@ export default {
       let url = "";
       let filenm = ""
       if(item == 'doc1') {
-        url = "/upload/DOC1.pdf";
+        url = "/upload/2025Y/DOC1.pdf";
         filenm = "자기주식취득에 관한 통지서.pdf"
       } else if (item == 'doc2') {
-        url = "/upload/DOC2.pdf";
+        url = "/upload/2025Y/DOC2.pdf";
         filenm = "주식양도신청서.pdf"
       } else if (item == 'doc4') {
-        url = "/upload/DOC4.pdf";
+        url = "/upload/2025Y/DOC4.pdf";
         filenm = "위임장.pdf"      
+       
       } else {
-        url = "/upload/DOC3.pdf";
+        
+        url =  this.stock.f_gun === "대주주" ? "/upload/2025Y/DOC32.pdf" : "/upload/2025Y/DOC31.pdf";
         filenm = "자기주식취득에관한 부연 설명서.pdf"
       }
 

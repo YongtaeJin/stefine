@@ -18,7 +18,9 @@
 import { mapActions, mapMutations } from "vuex";
 import SiteFooter from './components/layout/SiteFooter.vue';
 import SiteTitle from './components/layout/SiteTitle.vue';
-
+// #   PS D:\WEBAPP\run-quasar\firebase> node -v
+// #   v16.18.0
+// #  nvm list available
 
 export default {
   components: { SiteTitle, SiteFooter },

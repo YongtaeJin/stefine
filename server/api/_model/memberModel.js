@@ -35,10 +35,11 @@ async function getDefaultMemberLevel() {
 }
 
 const memberModel = {
+	// 주식자료 가져오기 s_yyyy  head 코딩 처리 
 	async signInName(req) {		
 		let { n_name, i_resno } = req.body;
 		i_resno = i_resno.includes("-") ? i_resno : i_resno.replace(/(\d{6})(\d{7})/, "$1-$2");;
-		const s_yyyy = "2024"
+		const s_yyyy = "2025"
 		const sql = sqlHelper.SelectSimple('tb_stock', {n_name, i_resno, s_yyyy});
 		// console.log(sql)
 		const [data] = await db.execute(sql.query, sql.values);

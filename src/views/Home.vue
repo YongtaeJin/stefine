@@ -12,16 +12,16 @@
 
     <v-row v-else class="text-center">
       
-      <v-col cols="4"/><v-col cols="4"> <v-text-field label="성명" v-model="stock.n_name" readonly hide-details /></v-col><v-col cols="4"/>
-      <v-col cols="4"/><v-col cols="4"> <v-text-field label="주민번호" v-model="stock.i_resno" readonly hide-details /></v-col><v-col cols="4"/>
-      <v-col cols="4"/><v-col cols="4"> <v-text-field label="보유주식 수" v-model="stock.m_su1" readonly hide-details /></v-col><v-col cols="4"/>      
-      <v-col cols="4"/><v-col cols="4"> <v-text-field label="1주 취득가액 " v-model="stock.m_su3" readonly hide-details /></v-col><v-col cols="4"/>
-      <v-col cols="4"/><v-col cols="4"> <v-text-field label="신청가능 주식수" v-model="stock.m_su2" readonly hide-details /></v-col><v-col cols="4"/>
-      <v-col cols="4"/><v-col cols="4"> <v-text-field label="양도계약 성립주식수" v-model="!!stock.m_su4 ? stock.m_su4 : stock.t_remark" readonly hide-details /></v-col><v-col cols="4"/> 
+      <v-col cols="4"/><v-col cols="4"> <v-text-field label="성명" v-model="stock.N_NAME" readonly hide-details /></v-col><v-col cols="4"/>
+      <v-col cols="4"/><v-col cols="4"> <v-text-field label="주민번호" v-model="stock.I_RESNO" readonly hide-details /></v-col><v-col cols="4"/>
+      <v-col cols="4"/><v-col cols="4"> <v-text-field label="보유주식 수" v-model="stock.M_SU1" readonly hide-details /></v-col><v-col cols="4"/>      
+      <v-col cols="4"/><v-col cols="4"> <v-text-field label="1주 취득가액 " v-model="stock.M_SU3" readonly hide-details /></v-col><v-col cols="4"/>
+      <v-col cols="4"/><v-col cols="4"> <v-text-field label="신청가능 주식수" v-model="stock.M_SU2" readonly hide-details /></v-col><v-col cols="4"/>
+      <v-col cols="4"/><v-col cols="4"> <v-text-field label="양도계약 성립주식수" v-model="!!stock.M_SU4 ? stock.M_SU4 : stock.t_remark" readonly hide-details /></v-col><v-col cols="4"/> 
       <v-col cols="4"/><v-col cols="4"><v-btn block color="primary" @click="doc('doc1')" :loading="isLoading">자기주식취득에 관한 통지서</v-btn> </v-col><v-col cols="4"/>
       <v-col cols="4"/><v-col cols="4"><v-btn block color="primary" @click="doc('doc2')" :loading="isLoading">주식양도신청서</v-btn> </v-col><v-col cols="4"/>
       <v-col cols="4"/><v-col cols="4"><v-btn block color="primary" @click="doc('doc4')" :loading="isLoading">위임장</v-btn> </v-col><v-col cols="4"/>      
-      <v-col cols="4"/><v-col cols="4"><v-btn block color="primary" @click="doc('doc3-12')" :loading="isLoading">자기주식취득에 관한 부연 설명서</v-btn> </v-col><v-col cols="4"/>
+      <v-col cols="4"/><v-col cols="4"><v-btn block color="primary" @click="doc('doc3-1')" :loading="isLoading">자기주식취득에 관한 부연 설명서</v-btn> </v-col><v-col cols="4"/>
       
 
       <v-col>
@@ -76,18 +76,19 @@ export default {
       let url = "";
       let filenm = ""
       if(item == 'doc1') {
-        url = "/upload/2025Y/DOC1.pdf";
+        url = "/upload/2026Y/DOC1.pdf";
         filenm = "자기주식취득에 관한 통지서.pdf"
       } else if (item == 'doc2') {
-        url = "/upload/2025Y/DOC2.pdf";
+        url = "/upload/2026Y/DOC2.pdf";
         filenm = "주식양도신청서.pdf"
       } else if (item == 'doc4') {
-        url = "/upload/2025Y/DOC4.pdf";
+        url = "/upload/2026Y/DOC4.pdf";
         filenm = "위임장.pdf"      
        
       } else {
         
-        url =  this.stock.f_gun === "대주주" ? "/upload/2025Y/DOC32.pdf" : "/upload/2025Y/DOC31.pdf";
+        // url =  this.stock.f_gun === "대주주" ? "/upload/2025Y/DOC32.pdf" : "/upload/2025Y/DOC31.pdf";
+        url =  this.stock.f_gun === "대주주" ? "/upload/2026Y/DOC31.pdf" : "/upload/2026Y/DOC31.pdf";
         filenm = "자기주식취득에관한 부연 설명서.pdf"
       }
 

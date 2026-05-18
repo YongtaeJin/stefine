@@ -2,6 +2,7 @@ const fs = require('fs');
 const path = require('path');
 
 const db = require('../../plugins/mysql');
+const oradb = require('../../plugins/oracledb');
 const jwt = require('../../plugins/jwt');
 const sendMailer = require('../../plugins/sendMailer');
 
@@ -39,11 +40,14 @@ const memberModel = {
 	async signInName(req) {		
 		let { n_name, i_resno } = req.body;
 		i_resno = i_resno.includes("-") ? i_resno : i_resno.replace(/(\d{6})(\d{7})/, "$1-$2");;
-		const s_yyyy = "2025"
-		const sql = sqlHelper.SelectSimple('tb_stock', {n_name, i_resno, s_yyyy});
-		// console.log(sql)
-		const [data] = await db.execute(sql.query, sql.values);
-		// console.log(data)
+		const s_yyyy = "2026"
+		// const sql = sqlHelper.SelectSimple('tb_stock', {n_name, i_resno, s_yyyy});
+		const sql = sqlHelper.OracleSelect('tb_stock', {n_name, i_resno, s_yyyy});		
+		console.log(sql)		
+		const data = await oradb.queryObject(sql.query, sql.values, []);
+					    
+		  		
+		 console.log("data : ", data)
 		return data;
 	},
 	async getFileDown(req, res) {		

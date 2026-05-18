@@ -1,12 +1,16 @@
 const db = require('../../plugins/mysql');
+const oradb = require('../../plugins/oracledb');
 const sqlHelper = require('../../../util/sqlHelper');
 const TABLE = require('../../../util/TABLE');
 const { LV, isGrant } = require('../../../util/level');
 
 const configModel = {
 	async load() {
-		const sql = sqlHelper.SelectSimple(TABLE.CONFIG, null, ['cf_key', 'cf_val', 'cf_client', 'cf_type']);		
-		const [rows] = await db.execute(sql.query, sql.values);
+		// const sql = sqlHelper.SelectSimple(TABLE.CONFIG, null, ['cf_key', 'cf_val', 'cf_client', 'cf_type']);		
+		// const [rows] = await db.execute(sql.query, sql.values);
+		const sql = sqlHelper.OracleSelect('TB_WEB_CONFIG', null, ['cf_key', 'cf_val', 'cf_client', 'cf_type']);	
+		const rows = await oradb.queryObject(sql.query, [], []);
+
 		global.$config = {
 			server: {},
 			client: {}

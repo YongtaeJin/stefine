@@ -60,7 +60,7 @@ export default {
       stock: {I_RESNO:"", N_NAME:"", A_UN:0, M_SU1:0, M_SU2:0, M_SU3:0, M_SU4:0, A_AMT:0, T_REMARK: "", F_GUN:""},     
       // stock: {i_resno:"", n_name:"", a_un:0, m_su1:0, m_su2:0, m_su3:0, m_su4:0, a_amt:0, f_gun:""},     
       sval: "(2023년 8월 7일 이후 확인 가능)",
-      MAX_SU : 13424,
+      MAX_SU : 13425,
     }
 	},
 	title() {
